@@ -14,13 +14,13 @@ public class MapGenerator : MonoBehaviour
         Generate();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Generate();
-        }
-    }
+    // private void Update()
+    // {
+    //     if (Input.GetKeyDown(KeyCode.Space))
+    //     {
+    //         Generate();
+    //     }
+    // }
 
 
     private void Generate()
