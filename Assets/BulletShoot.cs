@@ -5,6 +5,8 @@ using UnityEngine;
 public class BulletShoot : MonoBehaviour
 {
     public float life = 3;
+
+    
  
     void Awake()
     {
@@ -12,8 +14,9 @@ public class BulletShoot : MonoBehaviour
     }
  
     void OnCollisionEnter(Collision collision)
-    {
-        Destroy(gameObject);
-    }
+  {
+            Destroy(gameObject);
+  }
+
 }
 

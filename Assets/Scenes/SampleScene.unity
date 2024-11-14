@@ -7180,8 +7180,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fcc03f28a8d341abb4bee089baba003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 1
+  Damage: 5
   BulletRange: 1000
+  bulletSpawnPoint: {fileID: 1413028621}
 --- !u!114 &211642563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49271,7 +49272,7 @@ GameObject:
   - component: {fileID: 1508929785}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49288,7 +49289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88a0b51ab176346009c471e04da5ae4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartingHealth: 10
+  StartingHealth: 20
 --- !u!65 &1508929786
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -49305,7 +49306,7 @@ BoxCollider:
     m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
-  m_ProvidesContacts: 1
+  m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1.012291, y: 1.0379457, z: 0.94532776}

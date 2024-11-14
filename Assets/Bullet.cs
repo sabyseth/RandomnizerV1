@@ -4,12 +4,12 @@ using UnityEngine;
  
 public class Bullet : MonoBehaviour
 {
-    public Transform bulletSpawnPoint;
-    public GameObject bulletPrefab;
+   public Transform bulletSpawnPoint;
+  public GameObject bulletPrefab;
     public float bulletSpeed = 10;
  
     void Update()
-    {
+  {
         if(Input.GetKeyDown(KeyCode.Mouse0))
         {
             var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);

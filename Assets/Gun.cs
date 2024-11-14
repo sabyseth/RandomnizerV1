@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
+
     public UnityEvent OnGunShoot;
     public float FireCoolDown;
     public bool Automatic;
@@ -30,6 +31,7 @@ public class Gun : MonoBehaviour
                 if (CurrentCoolDown <= 0f)
                 {
                     OnGunShoot?.Invoke();
+    
                     CurrentCoolDown = FireCoolDown;
                 }
             }

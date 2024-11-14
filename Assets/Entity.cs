@@ -28,5 +28,7 @@ public class Entity : MonoBehaviour
     {
         Health = StartingHealth;
     }
+   
 
 }
+
