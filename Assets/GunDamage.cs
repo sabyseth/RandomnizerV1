@@ -6,6 +6,8 @@ public class GunDamage : MonoBehaviour
 {
     public float Damage;
     public float BulletRange;
+    
+    public ParticleSystem MuzzleFlash;
     private Transform PlayerCamera;
     public Transform bulletSpawnPoint;
 
@@ -18,6 +20,7 @@ public class GunDamage : MonoBehaviour
 
     public void Shoot()
     {
+        MuzzleFlash.Play();
        Ray gunRay = new Ray(bulletSpawnPoint.position, transform.forward);
         if (Physics.Raycast(gunRay, out RaycastHit hitInfo, BulletRange))
         {
