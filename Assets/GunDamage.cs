@@ -6,10 +6,11 @@ public class GunDamage : MonoBehaviour
 {
     public float Damage;
     public float BulletRange;
-    
     public ParticleSystem MuzzleFlash;
     private Transform PlayerCamera;
     public Transform bulletSpawnPoint;
+    public GameObject bulletPrefab;
+    public float bulletSpeed = 10;
 
     private void Start()
     {
@@ -20,10 +21,15 @@ public class GunDamage : MonoBehaviour
 
     public void Shoot()
     {
-        MuzzleFlash.Play();
+        
+
        Ray gunRay = new Ray(bulletSpawnPoint.position, transform.forward);
         if (Physics.Raycast(gunRay, out RaycastHit hitInfo, BulletRange))
         {
+        MuzzleFlash.Play();
+        var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+        bullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * bulletSpeed;
+        
             if (hitInfo.collider.gameObject.TryGetComponent(out Entity enemy))
             {
                 enemy.Health -= Damage;

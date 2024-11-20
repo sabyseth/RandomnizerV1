@@ -8,6 +8,7 @@ public class Gun : MonoBehaviour
     public float FireCoolDown;
     public bool Automatic;
     public float CurrentCoolDown;
+    
     void Start()
     {
         CurrentCoolDown = FireCoolDown;
@@ -20,7 +21,7 @@ public class Gun : MonoBehaviour
             if (Input.GetMouseButton(0))
             {
                 if (CurrentCoolDown <= 0f){
-                OnGunShoot?.Invoke();
+                OnGunShoot?.Invoke();               
                 CurrentCoolDown = FireCoolDown;
                 }
             }
