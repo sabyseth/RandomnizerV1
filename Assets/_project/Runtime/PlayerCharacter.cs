@@ -41,15 +41,36 @@ public class PlayerCharacter : MonoBehaviour, ICharacterController
 
     public void UpdateVelocity(ref Vector3 currentVelocity, float deltaTime)
     {
+        // If on the ground...
         if (motor.GroundingStatus.IsStableOnGround)
         {
+            // Snap the requested movement direction to the angle of the surface
+            // the character is curerntly walking on.
             var groundedMovement = motor.GetDirectionTangentToSurface
             (
                 direction: _requestedMovement,
                 surfaceNormal: motor.GroundingStatus.GroundNormal
             ) * _requestedMovement.magnitude;
-            
+
+            // And move along the ground in that direction.
             currentVelocity = groundedMovement * walkSpeed;
+        }
+        // else, in the air...
+        else
+        {
+            //Gravity
+            currentVelocity += motor.CharacterUp * gravity * deltaTime;
+        }
+
+        if (_requestedJump)
+        {
+            _requestedJump = false;
+
+            // Unstick the palyer from the ground.
+            motor.ForceUnground(time: 0f);
+
+            // Add a jump force.
+            currentVelocity += motor.CharacterUp * jumpSpeed;
         }
     }
 
