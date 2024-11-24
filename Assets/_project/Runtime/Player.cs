@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class Player : MonoBehaviour
     void Update()
     {  
         var input = _inputActions.Gameplay;
+        var deltaTime = Time.deltaTime;
 
         //Get camera input and update its rotation.
         var cameraInput = new CameraInput { Look = input.Look.ReadValue<Vector2>() };
@@ -33,15 +35,36 @@ public class Player : MonoBehaviour
         // Get Character input and update it
         var characterInput = new CharacterInput
         {
-            Rotation = playerCamera.transform.rotation,
-            Move     = input.Move.ReadValue<Vector2>(),
-            Jump     = input.Jump.WasPressedThisFrame()
+            Rotation    = playerCamera.transform.rotation,
+            Move        = input.Move.ReadValue<Vector2>(),
+            Jump        = input.Jump.WasPressedThisFrame(),
+            JumpSustain = input.Jump.IsPressed(),
+            Crouch      = input.Crouch.WasPressedThisFrame()
+                ? CrouchInput.Toggle
+                : CrouchInput.None
         };
         playerCharacter.UpdateInput(characterInput);
+        playerCharacter.UpdateBody(deltaTime);
+
+        #if UNITY_EDITOR
+        if (Keyboard.current.tKey.wasPressedThisFrame)
+        {
+            var ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
+            if(Physics.Raycast(ray, out var hit))
+            {
+                Teleport(hit.point);
+            }
+            #endif
+        }
     }
 
     void LateUpdate()
     {
         playerCamera.UpdatePosition(playerCharacter.GetCameraTarget());
+    }
+
+    public void Teleport(Vector3 position)
+    {
+        playerCharacter.SetPosition(position);
     }
 }
