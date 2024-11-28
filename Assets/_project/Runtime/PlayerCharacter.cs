@@ -112,7 +112,7 @@ public class PlayerCharacter : MonoBehaviour, ICharacterController
 
         _requestedStustainedJump = input.JumpSustain;
 
-        var wasRequestingCrouch = _requestedCrouchInAir;
+        var wasRequestingCrouch = _requestedCrouch;
         //_requestedCrouch = input.Crouch;
         _requestedCrouch = input.Crouch switch
         {
