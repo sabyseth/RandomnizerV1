@@ -1,28 +1,41 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] private PlayerCharacter playerCharacter;
     [SerializeField] private PlayerCamera playerCamera;
+    [Space]
+    [SerializeField] private CameraSpring cameraSpring;
+    [SerializeField] private CameraLean cameraLean;
+    [Space]
+    [SerializeField] private Volume volume;
+    [SerializeField] private StanceVignette stanceVignette;
 
     private PlayerInputActions _inputActions;
 
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+
         _inputActions = new PlayerInputActions();
         _inputActions.Enable();
 
         playerCharacter.Initialize();
         playerCamera.Initialize(playerCharacter.GetCameraTarget());
+
+        cameraSpring.Initialize();
+        cameraLean.Initialize();
+
+        stanceVignette.Initialize(volume.profile);
     }
 
     void OnDestroy()
     {
         _inputActions.Dispose();
     }
-    // Update is called once per frame
+
     void Update()
     {  
         var input = _inputActions.Gameplay;
@@ -39,7 +52,7 @@ public class Player : MonoBehaviour
             Move        = input.Move.ReadValue<Vector2>(),
             Jump        = input.Jump.WasPressedThisFrame(),
             JumpSustain = input.Jump.IsPressed(),
-            Crouch      = input.Crouch.WasPressedThisFrame()
+            Crouch      = input.Crouch.IsPressed()
                 ? CrouchInput.Toggle
                 : CrouchInput.None
         };
@@ -53,18 +66,33 @@ public class Player : MonoBehaviour
             if(Physics.Raycast(ray, out var hit))
             {
                 Teleport(hit.point);
-            }
-            #endif
+            } 
         }
+        #endif
     }
 
     void LateUpdate()
     {
-        playerCamera.UpdatePosition(playerCharacter.GetCameraTarget());
+        var deltaTime = Time.deltaTime;
+        var cameraTarget = playerCharacter.GetCameraTarget();
+        var state = playerCharacter.GetState();
+
+        playerCamera.UpdatePosition(cameraTarget);
+        cameraSpring.UpdateSpring(deltaTime, cameraTarget.up);
+        cameraLean.UpdateLean
+        (
+            deltaTime, 
+            state.Stance is Stance.Slide, 
+            state.Acceleration, 
+            cameraTarget.up
+        );
+
+        stanceVignette.UpdateVignette(deltaTime, state.Stance);
     }
 
     public void Teleport(Vector3 position)
     {
         playerCharacter.SetPosition(position);
+        playerCamera.UpdatePosition(playerCharacter.GetCameraTarget());
     }
 }

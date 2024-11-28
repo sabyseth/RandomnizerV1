@@ -1,0 +1,4 @@
+.Speed {
+    font-size: 40px;
+    color: rgb(202, 98, 98);
+}
