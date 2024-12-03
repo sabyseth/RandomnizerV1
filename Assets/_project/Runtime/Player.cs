@@ -13,13 +13,13 @@ public class Player : MonoBehaviour
     [SerializeField] private Volume volume;
     [SerializeField] private StanceVignette stanceVignette;
 
-    private PlayerInputActions _inputActions;
+    private PlayerInputActoions _inputActions;
 
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
 
-        _inputActions = new PlayerInputActions();
+        _inputActions = new PlayerInputActoions();
         _inputActions.Enable();
 
         playerCharacter.Initialize();
@@ -54,7 +54,10 @@ public class Player : MonoBehaviour
             JumpSustain = input.Jump.IsPressed(),
             Crouch      = input.Crouch.IsPressed()
                 ? CrouchInput.Toggle
-                : CrouchInput.None
+                : CrouchInput.None,
+            Sprint      = input.Sprint.IsPressed()
+                ? SprintInput.Toggle
+                : SprintInput.None
         };
         playerCharacter.UpdateInput(characterInput);
         playerCharacter.UpdateBody(deltaTime);

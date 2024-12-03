@@ -7,9 +7,14 @@ public enum CrouchInput
     None, Toggle
 }
 
+public enum SprintInput
+{
+    None, Toggle
+}
+
 public enum Stance
 {
-    Stand, Crouch, Slide
+    Stand, Crouch, Slide, Sprint
 }
 
 public struct CharacterState
@@ -27,6 +32,7 @@ public struct CharacterInput
     public bool Jump;
     public bool JumpSustain;
     public CrouchInput Crouch;
+    public SprintInput Sprint;
 }
 public class PlayerCharacter : MonoBehaviour, ICharacterController
 {
@@ -37,8 +43,10 @@ public class PlayerCharacter : MonoBehaviour, ICharacterController
     [Space]
     [SerializeField] private CharacterInfo characterInfo;
     [Space]
+    [SerializeField] private float sprintSpeed = 35f;
     [SerializeField] private float walkSpeed = 20f;
     [SerializeField] private float crouchSpeed = 7f;
+    [SerializeField] private float sprintResponse = 30f;
     [SerializeField] private float walkResponse = 25f;
     [SerializeField] private float crouchResponse = 20f;
     [Space]
@@ -182,7 +190,7 @@ public class PlayerCharacter : MonoBehaviour, ICharacterController
             {
                 var moving = groundedMovement.sqrMagnitude > 0f;
                 var crouching = _state.Stance is Stance.Crouch;
-                var wasStanding = _lastState.Stance is Stance.Stand;
+                var wasStanding = _lastState.Stance is Stance.Stand; // potential cause for phantom slide boost if it happens
                 var wasInAir = !_lastState.Grounded;
                 if(moving && crouching && (wasStanding || wasInAir))
                 {
@@ -221,13 +229,17 @@ public class PlayerCharacter : MonoBehaviour, ICharacterController
                 }
             }
             // Move.
-            if (_state.Stance is Stance.Stand or Stance.Crouch)
+            if (_state.Stance is Stance.Stand or Stance.Crouch or Stance.Sprint)
             {       
                 // Calculate the speed and responsiveness of movement based
                 // on the character's stance.
-                var speed = _state.Stance is Stance.Stand
-                    ? walkSpeed
-                    : crouchSpeed;
+                var speed = _state.Stance switch
+                {
+                    Stance.Stand => walkSpeed,
+                    Stance.Crouch => crouchSpeed,
+                    Stance.Sprint => sprintSpeed,
+                    _ => walkSpeed
+                };
                 var response = _state.Stance is Stance.Stand
                     ? walkResponse
                     : crouchResponse;

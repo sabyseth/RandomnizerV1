@@ -1,5 +1,5 @@
 {
-    "name": "PlayerInputActions",
+    "name": "PlayerInputActoions",
     "maps": [
         {
             "name": "Gameplay",
@@ -36,6 +36,15 @@
                     "name": "Crouch",
                     "type": "Button",
                     "id": "bded8eed-5da4-40e5-babf-75d74824037a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Sprint",
+                    "type": "Button",
+                    "id": "61ff78a1-08ba-4196-8d78-9cf7fca59548",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -139,6 +148,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Crouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "21103693-389b-4477-a51d-b26c2a278d44",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Sprint",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
