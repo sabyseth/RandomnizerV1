@@ -1,6 +1,5 @@
 using UnityEngine;
 using KinematicCharacterController;
-using UnityEngine.UIElements;
 
 public enum CrouchInput
 {
@@ -229,6 +228,11 @@ public class PlayerCharacter : MonoBehaviour, ICharacterController
                 }
             }
             // Move.
+
+            if (_state.Stance is Stance.Crouch){
+                Debug.Log("Sprinting");
+            }
+
             if (_state.Stance is Stance.Stand or Stance.Crouch or Stance.Sprint)
             {       
                 // Calculate the speed and responsiveness of movement based
@@ -240,10 +244,13 @@ public class PlayerCharacter : MonoBehaviour, ICharacterController
                     Stance.Sprint => sprintSpeed,
                     _ => walkSpeed
                 };
-                var response = _state.Stance is Stance.Stand
-                    ? walkResponse
-                    : crouchResponse;
 
+                var response = _state.Stance switch
+                {
+                    Stance.Stand or Stance.Slide => walkResponse,
+                    Stance.Crouch => crouchResponse,
+                    Stance.Sprint => sprintResponse
+                };
                 // And smoothly move along the ground in that direction.
                 var targetVelocity = groundedMovement * speed;
                 var moveVelocity = Vector3.Lerp
