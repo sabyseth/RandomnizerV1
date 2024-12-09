@@ -104,6 +104,16 @@ public class PlayerCharacter : MonoBehaviour, ICharacterController
 
     public void UpdateInput(CharacterInput input)
     {
+        if (input.Sprint == SprintInput.Toggle)
+        {
+            _state.Stance = Stance.Sprint;
+        }
+        else if (_state.Stance == Stance.Sprint)
+        {
+            _state.Stance = Stance.Stand; // Fallback if Sprint is released
+        }
+
+
         _requestedRotation = input.Rotation;
         // Take the 2d input veector and create a 3d movement vector on the XZ plane.
         _requestedMovement = new Vector3(input.Move.x, 0f, input.Move.y);
@@ -229,9 +239,6 @@ public class PlayerCharacter : MonoBehaviour, ICharacterController
             }
             // Move.
 
-            if (_state.Stance is Stance.Crouch){
-                Debug.Log("Sprinting");
-            }
 
             if (_state.Stance is Stance.Stand or Stance.Crouch or Stance.Sprint)
             {       
@@ -247,9 +254,10 @@ public class PlayerCharacter : MonoBehaviour, ICharacterController
 
                 var response = _state.Stance switch
                 {
-                    Stance.Stand or Stance.Slide => walkResponse,
+                    Stance.Stand => walkResponse,
                     Stance.Crouch => crouchResponse,
-                    Stance.Sprint => sprintResponse
+                    Stance.Sprint => sprintResponse,
+                    _ => walkResponse
                 };
                 // And smoothly move along the ground in that direction.
                 var targetVelocity = groundedMovement * speed;
