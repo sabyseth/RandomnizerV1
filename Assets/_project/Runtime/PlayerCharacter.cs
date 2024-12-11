@@ -179,6 +179,7 @@ public class PlayerCharacter : MonoBehaviour, ICharacterController
 
     public void UpdateVelocity(ref Vector3 currentVelocity, float deltaTime)
     {
+        characterInfo.SetStateText(_state.Stance.ToString());   
         characterInfo.SetFloatValue(currentVelocity.magnitude);
         _state.Acceleration = Vector3.zero;
 

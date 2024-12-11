@@ -23,7 +23,9 @@ public class StanceVignette : MonoBehaviour
 
     public void UpdateVignette(float deltaTime, Stance stance)
     {
-        var targetIntensity = stance is Stance.Stand ? min : max;
+        Debug.Log(stance);
+// Determine the target intensity based on the current stance
+    var targetIntensity = (stance == Stance.Stand || stance == Stance.Sprint) ? min : max;
         _vignette.intensity.value = Mathf.Lerp
         (
             a: _vignette.intensity.value,

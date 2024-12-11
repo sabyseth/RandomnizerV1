@@ -1,4 +1,28 @@
-.Speed {
-    font-size: 40px;
-    color: rgb(202, 98, 98);
+.info {
+    color: rgba(255, 85, 85, 0.54);
+    -unity-slice-scale: 1px;
+    border-left-color: rgba(130, 118, 118, 0);
+    border-right-color: rgba(130, 118, 118, 0);
+    border-top-color: rgba(130, 118, 118, 0);
+    border-bottom-color: rgba(130, 118, 118, 0);
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0);
+    -unity-background-scale-mode: stretch-to-fill;
+    -unity-font-style: bold;
+    font-size: 75%;
+    text-overflow: clip;
+    -unity-text-align: upper-left;
+    background-color: rgb(95, 117, 166);
+    -unity-slice-bottom: 0;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    left: 0;
+    right: auto;
+    bottom: 0;
+    top: auto;
+    width: 20%;
+    justify-content: flex-start;
+    align-items: stretch;
+    visibility: visible;
 }
