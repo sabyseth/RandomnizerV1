@@ -32,6 +32,7 @@ public struct CharacterInput
     public bool JumpSustain;
     public CrouchInput Crouch;
     public SprintInput Sprint;
+    public bool Fire;
 }
 public class PlayerCharacter : MonoBehaviour, ICharacterController
 {
