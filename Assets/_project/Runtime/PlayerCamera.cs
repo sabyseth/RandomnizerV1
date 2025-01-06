@@ -9,7 +9,7 @@ public class PlayerCamera : MonoBehaviour
 {
     [SerializeField] private float sensitivity = 0.1f;
     private Vector3 _eulerAngles;
-    public float maxPitch = 80f;
+    public float maxPitch = 90f;
 
     public void Initialize(Transform target)
     {
@@ -19,10 +19,18 @@ public class PlayerCamera : MonoBehaviour
     }
 
     public void UpdateRotation(CameraInput input)
-    {
-        _eulerAngles += new Vector3(-input.Look.y, input.Look.x) * sensitivity;
-        transform.eulerAngles = Vector3.ClampMagnitude(_eulerAngles, 100f);
-    }
+{
+    // Update the pitch (X-axis) and yaw (Y-axis)
+    _eulerAngles.x += -input.Look.y * sensitivity;
+    _eulerAngles.y += input.Look.x * sensitivity;
+
+    // Clamp the pitch to stay within the allowed range
+    _eulerAngles.x = Mathf.Clamp(_eulerAngles.x, -maxPitch, maxPitch);
+
+    // Apply the clamped rotation
+    transform.eulerAngles = _eulerAngles;
+}
+
 
     public void UpdatePosition(Transform target)
     {

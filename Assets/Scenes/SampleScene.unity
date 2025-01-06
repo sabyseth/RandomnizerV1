@@ -2109,6 +2109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sensitivity: 0.1
+  maxPitch: 80
 --- !u!1 &1685511463
 GameObject:
   m_ObjectHideFlags: 0
@@ -2150,7 +2151,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1685511463}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a427c93e25fde349b066b65a15852c9, type: 3}
+  m_Script: {fileID: 11500000, guid: 55969dd177a4144bb82e06ecf396b2a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   min: 0.1
