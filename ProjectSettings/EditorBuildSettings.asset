@@ -15,7 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/tempGame.unity
     guid: 592c8c1efc77b4538a7751b83bcffcad
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
-  m_configObjects:
-    com.unity.input.settings: {fileID: 11400000, guid: 7d7ca70e96cbd4288b4798a15d26c332, type: 2}
+    path: Assets/tempGame.unity
+    guid: 592c8c1efc77b4538a7751b83bcffcad
+  m_configObjects: {}

@@ -73,9 +73,9 @@ public partial class @PlayerInputActoions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Generate"",
+                    ""name"": ""Fire"",
                     ""type"": ""Button"",
-                    ""id"": ""97cd5509-29be-4618-ae03-538dad8e45de"",
+                    ""id"": ""c396cd01-9065-4b87-8f40-2d108f25b458"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -195,12 +195,12 @@ public partial class @PlayerInputActoions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""6100c240-3eda-45f5-9251-b5d0f469d70b"",
-                    ""path"": ""<Keyboard>/p"",
+                    ""id"": ""3ecca9a3-e9fc-432d-a0a2-dda19a11c881"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Generate"",
+                    ""action"": ""Fire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -216,7 +216,7 @@ public partial class @PlayerInputActoions: IInputActionCollection2, IDisposable
         m_Gameplay_Jump = m_Gameplay.FindAction("Jump", throwIfNotFound: true);
         m_Gameplay_Crouch = m_Gameplay.FindAction("Crouch", throwIfNotFound: true);
         m_Gameplay_Sprint = m_Gameplay.FindAction("Sprint", throwIfNotFound: true);
-        m_Gameplay_Generate = m_Gameplay.FindAction("Generate", throwIfNotFound: true);
+        m_Gameplay_Fire = m_Gameplay.FindAction("Fire", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -283,7 +283,7 @@ public partial class @PlayerInputActoions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Jump;
     private readonly InputAction m_Gameplay_Crouch;
     private readonly InputAction m_Gameplay_Sprint;
-    private readonly InputAction m_Gameplay_Generate;
+    private readonly InputAction m_Gameplay_Fire;
     public struct GameplayActions
     {
         private @PlayerInputActoions m_Wrapper;
@@ -293,7 +293,7 @@ public partial class @PlayerInputActoions: IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_Gameplay_Jump;
         public InputAction @Crouch => m_Wrapper.m_Gameplay_Crouch;
         public InputAction @Sprint => m_Wrapper.m_Gameplay_Sprint;
-        public InputAction @Generate => m_Wrapper.m_Gameplay_Generate;
+        public InputAction @Fire => m_Wrapper.m_Gameplay_Fire;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -318,9 +318,9 @@ public partial class @PlayerInputActoions: IInputActionCollection2, IDisposable
             @Sprint.started += instance.OnSprint;
             @Sprint.performed += instance.OnSprint;
             @Sprint.canceled += instance.OnSprint;
-            @Generate.started += instance.OnGenerate;
-            @Generate.performed += instance.OnGenerate;
-            @Generate.canceled += instance.OnGenerate;
+            @Fire.started += instance.OnFire;
+            @Fire.performed += instance.OnFire;
+            @Fire.canceled += instance.OnFire;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -340,9 +340,9 @@ public partial class @PlayerInputActoions: IInputActionCollection2, IDisposable
             @Sprint.started -= instance.OnSprint;
             @Sprint.performed -= instance.OnSprint;
             @Sprint.canceled -= instance.OnSprint;
-            @Generate.started -= instance.OnGenerate;
-            @Generate.performed -= instance.OnGenerate;
-            @Generate.canceled -= instance.OnGenerate;
+            @Fire.started -= instance.OnFire;
+            @Fire.performed -= instance.OnFire;
+            @Fire.canceled -= instance.OnFire;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -367,6 +367,6 @@ public partial class @PlayerInputActoions: IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnCrouch(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);
-        void OnGenerate(InputAction.CallbackContext context);
+        void OnFire(InputAction.CallbackContext context);
     }
 }

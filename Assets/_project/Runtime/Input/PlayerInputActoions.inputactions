@@ -51,9 +51,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Generate",
+                    "name": "Fire",
                     "type": "Button",
-                    "id": "97cd5509-29be-4618-ae03-538dad8e45de",
+                    "id": "c396cd01-9065-4b87-8f40-2d108f25b458",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -173,12 +173,12 @@
                 },
                 {
                     "name": "",
-                    "id": "6100c240-3eda-45f5-9251-b5d0f469d70b",
-                    "path": "<Keyboard>/p",
+                    "id": "3ecca9a3-e9fc-432d-a0a2-dda19a11c881",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Generate",
+                    "action": "Fire",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
