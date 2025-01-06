@@ -1610,6 +1610,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Recoil
       objectReference: {fileID: 0}
+    - target: {fileID: 7628823652994546365, guid: e2d889ccbd34f48f9b7f281e6d3e4a91, type: 3}
+      propertyPath: recoil
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
