@@ -11,7 +11,7 @@
     font-size: 100%;
     text-overflow: clip;
     -unity-text-align: upper-left;
-    background-color: rgb(95, 117, 166);
+    background-color: rgba(217, 220, 226, 0);
     -unity-slice-bottom: 0;
     border-top-width: 0;
     border-right-width: 0;
@@ -21,11 +21,11 @@
     right: auto;
     bottom: 0;
     top: auto;
-    width: 25%;
+    width: 10%;
     justify-content: space-around;
     align-items: center;
     visibility: visible;
-    height: 15%;
+    height: 10%;
     -unity-font: url("project://database/Assets/TextMesh%20Pro/Fonts/LiberationSans.ttf?fileID=12800000&guid=e3265ab4bf004d28a9537516768c1c75&type=3#LiberationSans");
     align-self: flex-start;
 }

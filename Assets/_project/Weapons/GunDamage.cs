@@ -21,37 +21,53 @@ public class GunDamage : MonoBehaviour
 
    }
 
-    public void Shoot()
+   public void Shoot()
+{
+    MuzzleFlash.Play();
+    RecoilObject.recoil += 0.005f;
+
+    // Create the ray using the camera's forward direction
+    Ray gunRay = new Ray(PlayerCamera.position, PlayerCamera.forward);
+
+    // Check if the ray hits anything
+    if (Physics.Raycast(gunRay, out RaycastHit hitInfo, BulletRange))
     {
-       Ray gunRay = new Ray(bulletSpawnPoint.position, transform.forward);
-        if (Physics.Raycast(gunRay, out RaycastHit hitInfo, BulletRange))
-        {
-        MuzzleFlash.Play();
-        RecoilObject.recoil += 0.005f;
-        //var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
-        //bullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * bulletSpeed;
+        // Spawn the bullet trail
         TrailRenderer trail = Instantiate(BulletTrail, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
-        StartCoroutine(SpawnTrail(trail, hitInfo));
-            if (hitInfo.collider.gameObject.TryGetComponent(out Entity enemy))
-            {
-                enemy.Health -= Damage;
-                Debug.Log("hit");
-            }
-        }
-    }
-    private IEnumerator SpawnTrail(TrailRenderer Trail, RaycastHit hit)
-    {
-        float distance = Vector3.Distance(Trail.transform.position, hit.point);
-        float startingDistance = distance;
-        Vector3 startposition = Trail.transform.position;
+        StartCoroutine(SpawnTrail(trail, hitInfo.point)); // Use the hit point
 
-        while (distance > 0)
+        // Check if the hit object has an Entity component
+        if (hitInfo.collider.gameObject.TryGetComponent(out Entity enemy))
         {
-            Trail.transform.position = Vector3.Lerp(startposition,hit.point, 1 - (distance / startingDistance));
-            distance -= Time.deltaTime * bulletSpeed;
-
-           yield return null;
+            enemy.Health -= Damage;
+            Debug.Log("Hit entity");
         }
-        Trail.transform.position = hit.point;
     }
+    else
+    {
+        // If no object is hit, calculate the endpoint based on the bullet range
+        Vector3 missPoint = gunRay.origin + gunRay.direction * BulletRange;
+
+        // Spawn the bullet trail
+        TrailRenderer trail = Instantiate(BulletTrail, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+        StartCoroutine(SpawnTrail(trail, missPoint)); // Use the calculated miss point
+    }
+}
+
+private IEnumerator SpawnTrail(TrailRenderer Trail, Vector3 targetPoint)
+{
+    float distance = Vector3.Distance(Trail.transform.position, targetPoint);
+    float startingDistance = distance;
+    Vector3 startPosition = Trail.transform.position;
+
+    while (distance > 0)
+    {
+        Trail.transform.position = Vector3.Lerp(startPosition, targetPoint, 1 - (distance / startingDistance));
+        distance -= Time.deltaTime * bulletSpeed;
+
+        yield return null;
+    }
+
+    Trail.transform.position = targetPoint;
+}
 }
