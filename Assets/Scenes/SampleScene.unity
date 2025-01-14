@@ -740,6 +740,7 @@ GameObject:
   - component: {fileID: 241886384}
   - component: {fileID: 241886383}
   - component: {fileID: 241886382}
+  - component: {fileID: 241886387}
   m_Layer: 0
   m_Name: death box
   m_TagString: Untagged
@@ -760,6 +761,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartingHealth: 100
+  collider: {fileID: 241886387}
+  targetPrefab: {fileID: 241886381}
 --- !u!65 &241886383
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -846,6 +849,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &241886387
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241886381}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 15, y: 1.5, z: 15}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &329907636
 GameObject:
   m_ObjectHideFlags: 0
@@ -1616,8 +1640,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1, y: -1}
-  m_SizeDelta: {x: 500, y: 500}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 350, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &963068370
 MonoBehaviour:
@@ -1632,14 +1656,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.015300989, g: 1, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1cfd080227c2e4f148fdcd75dddcea4e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f3c5af4f9f48646908eb4206243010da, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
