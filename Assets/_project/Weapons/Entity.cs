@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Runtime.InteropServices;
 using UnityEngine;
 
@@ -20,7 +21,7 @@ public class Entity : MonoBehaviour
         set
         {
             health = value;
-            Debug.Log(health);
+            Debug.Log("box's health: " + health);
 
             if (health <= 0f)
             {
@@ -30,6 +31,10 @@ public class Entity : MonoBehaviour
                 float randomY = Random.Range(collider.bounds.min.y, collider.bounds.max.y);
                 float randomZ = Random.Range(collider.bounds.min.z, collider.bounds.max.z);
                 newTarget.transform.position = new Vector3(randomX, randomY, randomZ);
+                //newTarget.
+                health = StartingHealth;
+                Debug.Log(health);
+                
             }
         }
     }

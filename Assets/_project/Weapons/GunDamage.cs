@@ -28,6 +28,7 @@ public class GunDamage : MonoBehaviour
 
     // Create the ray using the camera's forward direction
     Ray gunRay = new Ray(PlayerCamera.position, PlayerCamera.forward);
+    Debug.DrawRay(PlayerCamera.position, PlayerCamera.forward);
 
     // Check if the ray hits anything
     if (Physics.Raycast(gunRay, out RaycastHit hitInfo, BulletRange))
@@ -40,7 +41,7 @@ public class GunDamage : MonoBehaviour
         if (hitInfo.collider.gameObject.TryGetComponent(out Entity enemy))
         {
             enemy.Health -= Damage;
-            Debug.Log("Hit entity");
+            //Debug.Log("Hit entity");
         }
     }
     else
