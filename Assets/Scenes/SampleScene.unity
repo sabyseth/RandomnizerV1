@@ -1721,7 +1721,7 @@ PrefabInstance:
       objectReference: {fileID: 397222806}
     - target: {fileID: 5536496167884144744, guid: e2d889ccbd34f48f9b7f281e6d3e4a91, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5536496167884144744, guid: e2d889ccbd34f48f9b7f281e6d3e4a91, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1729,7 +1729,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5536496167884144744, guid: e2d889ccbd34f48f9b7f281e6d3e4a91, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.009999961
+      value: -0.34
       objectReference: {fileID: 0}
     - target: {fileID: 5536496167884144744, guid: e2d889ccbd34f48f9b7f281e6d3e4a91, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1765,11 +1765,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7628823652994546365, guid: e2d889ccbd34f48f9b7f281e6d3e4a91, type: 3}
       propertyPath: maxTrans_x
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7628823652994546365, guid: e2d889ccbd34f48f9b7f281e6d3e4a91, type: 3}
       propertyPath: maxTrans_z
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7628823652994546365, guid: e2d889ccbd34f48f9b7f281e6d3e4a91, type: 3}
       propertyPath: recoilSpeed
@@ -2491,7 +2491,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  FireCoolDown: 0
+  FireCoolDown: 0.15
   Automatic: 0
   CurrentCoolDown: 0
   motor: {fileID: 1904423077}

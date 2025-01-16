@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 public class MenuEvents : MonoBehaviour
 {
     private UIDocument _document;
@@ -21,5 +22,6 @@ public class MenuEvents : MonoBehaviour
 
     private void OnplayGameClick(ClickEvent evt){
         Debug.Log("Start");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

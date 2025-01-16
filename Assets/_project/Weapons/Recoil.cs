@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Recoil : MonoBehaviour {
 
-    //public GameObject Weapon;
     public float maxRecoil_x = -20.0f;
     public float maxRecoil_y = -10.0f;
 
@@ -14,16 +13,26 @@ public class Recoil : MonoBehaviour {
     public float recoilSpeed = 10.0f;
     public float recoil = 0.0f;
 
+    private Vector3 originalPosition;
+    private Quaternion originalRotation;
+
+    void Start()
+    {
+        // Store the original position and rotation at the start
+        originalPosition = transform.localPosition;
+        originalRotation = transform.localRotation;
+    }
+
     void Update()
     {
         if (recoil > 0)
         {
+            // Apply the recoil effect (rotation and translation)
             var maxRecoil = Quaternion.Euler(
                 Random.Range(transform.localRotation.x, maxRecoil_x),
                 Random.Range(transform.localRotation.y, maxRecoil_y),
                 transform.localRotation.z);
-      
-            // Dampen towards the target rotation
+
             transform.localRotation = Quaternion.Slerp(transform.localRotation, maxRecoil, Time.deltaTime * recoilSpeed);
 
             var maxTranslation = new Vector3(
@@ -37,21 +46,14 @@ public class Recoil : MonoBehaviour {
         }
         else
         {
+            // Reset recoil to 0 and return the gun to the original position and rotation smoothly
             recoil = 0;
-            var minRecoil = Quaternion.Euler(
-                Random.Range(0, transform.localRotation.x),
-                Random.Range(0, transform.localRotation.y),
-                transform.localRotation.z);
 
-            // Dampen towards the target rotation
-            transform.localRotation = Quaternion.Slerp(transform.localRotation, minRecoil, Time.deltaTime * recoilSpeed / 2);
+            // Smoothly return to original rotation
+            transform.localRotation = Quaternion.Slerp(transform.localRotation, originalRotation, Time.deltaTime * recoilSpeed / 2);
 
-            var minTranslation = new Vector3(
-                Random.Range(0, transform.localPosition.x),
-                transform.localPosition.y,
-                Random.Range(0, transform.localPosition.z));
-
-            transform.localPosition = Vector3.Slerp(transform.localPosition, minTranslation, Time.deltaTime * recoilSpeed);
+            // Smoothly return to original position
+            transform.localPosition = Vector3.Slerp(transform.localPosition, originalPosition, Time.deltaTime * recoilSpeed / 2);
         }
     }
 }
