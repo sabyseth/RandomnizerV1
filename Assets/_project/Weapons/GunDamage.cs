@@ -28,7 +28,7 @@ public class GunDamage : MonoBehaviour
 
     // Create the ray using the camera's forward direction
     Ray gunRay = new Ray(PlayerCamera.position, PlayerCamera.forward);
-    Debug.DrawRay(PlayerCamera.position, PlayerCamera.forward);
+    Debug.DrawRay(PlayerCamera.position, PlayerCamera.forward, Color.green);
 
     // Check if the ray hits anything
     if (Physics.Raycast(gunRay, out RaycastHit hitInfo, BulletRange))
