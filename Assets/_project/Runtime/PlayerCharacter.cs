@@ -418,7 +418,6 @@ public class PlayerCharacter : MonoBehaviour, ICharacterController
 
             if (grounded || canCoyoteJump)
             {
-                print("JUMP!");
                 _requestedJump = false; // Unset jump request.
                 _requestedCrouch = false; // and request the character uncrouches. 
                 _requestedCrouchInAir = false;

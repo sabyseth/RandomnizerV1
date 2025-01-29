@@ -15,7 +15,7 @@ public class BulletShoot : MonoBehaviour
  
     void OnCollisionEnter(Collision collision)
   {
-            Destroy(gameObject);
+    Destroy(gameObject);
   }
 
 }
