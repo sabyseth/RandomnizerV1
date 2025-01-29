@@ -19,12 +19,16 @@
     justify-content: flex-start;
     align-self: center;
     transition-duration: 0.3s;
+    background-image: none;
+    -unity-font: initial;
+    -unity-font-style: bold;
 }
 
 .button:hover {
     transition-duration: 0s;
     color: rgb(0, 0, 0);
-    -unity-background-image-tint-color: rgb(233, 52, 52);
+    -unity-background-image-tint-color: rgba(230, 0, 0, 0);
     scale: 1.1 1.1;
-    background-color: rgb(226, 86, 65);
+    background-color: rgb(190, 140, 98);
+    background-image: none;
 }
