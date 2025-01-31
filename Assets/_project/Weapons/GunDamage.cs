@@ -56,19 +56,19 @@ public class GunDamage : MonoBehaviour
 }
 
 private IEnumerator SpawnTrail(TrailRenderer Trail, Vector3 targetPoint)
-{
-    float distance = Vector3.Distance(Trail.transform.position, targetPoint);
-    float startingDistance = distance;
-    Vector3 startPosition = Trail.transform.position;
-
-    while (distance > 0)
     {
-        Trail.transform.position = Vector3.Lerp(startPosition, targetPoint, 1 - (distance / startingDistance));
-        distance -= Time.deltaTime * bulletSpeed;
+        float distance = Vector3.Distance(Trail.transform.position, targetPoint);
+        float startingDistance = distance;
+        Vector3 startPosition = Trail.transform.position;
 
-        yield return null;
+        while (distance > 0)
+        {
+            Trail.transform.position = Vector3.Lerp(startPosition, targetPoint, 1 - (distance / startingDistance));
+            distance -= Time.deltaTime * bulletSpeed;
+
+            yield return null;
+        }
+
+        Trail.transform.position = targetPoint;
     }
-
-    Trail.transform.position = targetPoint;
-}
 }
