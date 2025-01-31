@@ -25,6 +25,7 @@ public class GunDamage : MonoBehaviour
 {
     MuzzleFlash.Play();
     RecoilObject.recoil += 0.005f;
+    Debug.Log("Shot");
 
     // Create the ray using the camera's forward direction
     Ray gunRay = new Ray(PlayerCamera.position, PlayerCamera.forward);
