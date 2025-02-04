@@ -13,6 +13,7 @@ public class GunDamage : MonoBehaviour
     public GameObject bulletPrefab;
     public float bulletSpeed = 10;
     public TrailRenderer BulletTrail;
+    public float recoilamount = 0.05f;
 
     private void Start()
     {
@@ -24,11 +25,11 @@ public class GunDamage : MonoBehaviour
    public void Shoot()
 {
     MuzzleFlash.Play();
-    RecoilObject.recoil += 0.005f;
+    RecoilObject.recoil += recoilamount;
     Debug.Log("Shot");
 
     // Create the ray using the camera's forward direction
-    Ray gunRay = new Ray(PlayerCamera.position, PlayerCamera.forward);
+    Ray gunRay = new Ray(bulletSpawnPoint.position, bulletSpawnPoint.forward);
     Debug.DrawRay(PlayerCamera.position, PlayerCamera.forward, Color.green);
 
     // Check if the ray hits anything
