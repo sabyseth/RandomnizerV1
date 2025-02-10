@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/actual menu.unity
     guid: 43c45ce2f36474a369d5afd740c94f58
   - enabled: 1
-    path: Assets/Scenes/DomSethRaff.unity
+    path: Assets/Low Poly Guns/Scenes/Main.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 0
     path: Assets/Scenes/untitled.unity
@@ -23,4 +23,5 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/tempGame.unity
     guid: 592c8c1efc77b4538a7751b83bcffcad
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 7d7ca70e96cbd4288b4798a15d26c332, type: 2}
