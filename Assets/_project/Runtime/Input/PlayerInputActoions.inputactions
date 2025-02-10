@@ -185,6 +185,7 @@
             ]
         },
         {
+<<<<<<< HEAD
             "name": "weapons switch",
             "id": "85958f32-be94-4f2f-90e4-70c60f741a9b",
             "actions": [
@@ -192,12 +193,22 @@
                     "name": "SwitchWeapon1",
                     "type": "Button",
                     "id": "81ed7cfe-e442-487e-93df-9e6690767e1e",
+=======
+            "name": "UI",
+            "id": "9327372c-5f38-4a60-a715-a43a6d541676",
+            "actions": [
+                {
+                    "name": "Click",
+                    "type": "Button",
+                    "id": "dd1767f4-1d9c-40f2-a129-b9260f1f3f25",
+>>>>>>> cb621d4d0e30cd7185c500a68bae285d831f5fd2
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
+<<<<<<< HEAD
                     "name": "SwitchWeapon2",
                     "type": "Button",
                     "id": "67e553db-1b49-402e-bbcc-c3b31fc65e23",
@@ -232,22 +243,41 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+=======
+                    "name": "Point",
+                    "type": "Value",
+                    "id": "ab51aa53-0220-45b8-b410-0cbec0f7e928",
+                    "expectedControlType": "Delta",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+>>>>>>> cb621d4d0e30cd7185c500a68bae285d831f5fd2
                 }
             ],
             "bindings": [
                 {
                     "name": "",
+<<<<<<< HEAD
                     "id": "1c6d7cdd-6cd7-4573-84f0-16af5ecd6b9e",
                     "path": "<Keyboard>/1",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "SwitchWeapon1",
+=======
+                    "id": "d32673c9-de5f-474a-982b-b60280bb3f40",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Click",
+>>>>>>> cb621d4d0e30cd7185c500a68bae285d831f5fd2
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
+<<<<<<< HEAD
                     "id": "02f78125-8b69-4b90-8e71-63fd71d7aa79",
                     "path": "<Keyboard>/2",
                     "interactions": "",
@@ -287,6 +317,14 @@
                     "processors": "",
                     "groups": "",
                     "action": "SwitchWeapon5",
+=======
+                    "id": "0953dca7-4e8d-4c1e-94c8-7b00270f332f",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Point",
+>>>>>>> cb621d4d0e30cd7185c500a68bae285d831f5fd2
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
