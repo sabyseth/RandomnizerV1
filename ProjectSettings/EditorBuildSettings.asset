@@ -4,35 +4,5 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/v1.unity
-    guid: 8031b4a8fabf94c14b76bb02e4c049f6
-  - enabled: 1
-    path: Assets/actual menu.unity
-    guid: 43c45ce2f36474a369d5afd740c94f58
-  - enabled: 1
-<<<<<<< HEAD
-    path: Assets/Low Poly Guns/Scenes/Main.unity
-=======
-    path: Assets/_project/Scenes/DomSethRaff.unity
->>>>>>> cb621d4d0e30cd7185c500a68bae285d831f5fd2
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 0
-    path: Assets/Scenes/untitled.unity
-    guid: ad1062a9e9e83418d9fb986601df9d07
-  - enabled: 0
-    path: Assets/Scenes/tempGame.unity
-    guid: 592c8c1efc77b4538a7751b83bcffcad
-  - enabled: 0
-    path: Assets/Scenes/tempGame.unity
-    guid: 592c8c1efc77b4538a7751b83bcffcad
-<<<<<<< HEAD
-  m_configObjects:
-    com.unity.input.settings: {fileID: 11400000, guid: 7d7ca70e96cbd4288b4798a15d26c332, type: 2}
-=======
-  - enabled: 1
-    path: Assets/_project/Scenes/dom.unity
-    guid: 5818e285afe9e45deaf866830075f1ea
+  m_Scenes: []
   m_configObjects: {}
->>>>>>> cb621d4d0e30cd7185c500a68bae285d831f5fd2

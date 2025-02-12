@@ -207,7 +207,7 @@ public partial class @PlayerInputActoions: IInputActionCollection2, IDisposable
             ]
         },
         {
-<<<<<<< HEAD
+
             ""name"": ""weapons switch"",
             ""id"": ""85958f32-be94-4f2f-90e4-70c60f741a9b"",
             ""actions"": [
@@ -215,7 +215,7 @@ public partial class @PlayerInputActoions: IInputActionCollection2, IDisposable
                     ""name"": ""SwitchWeapon1"",
                     ""type"": ""Button"",
                     ""id"": ""81ed7cfe-e442-487e-93df-9e6690767e1e"",
-=======
+
             ""name"": ""UI"",
             ""id"": ""9327372c-5f38-4a60-a715-a43a6d541676"",
             ""actions"": [
@@ -223,14 +223,12 @@ public partial class @PlayerInputActoions: IInputActionCollection2, IDisposable
                     ""name"": ""Click"",
                     ""type"": ""Button"",
                     ""id"": ""dd1767f4-1d9c-40f2-a129-b9260f1f3f25"",
->>>>>>> cb621d4d0e30cd7185c500a68bae285d831f5fd2
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
                 },
                 {
-<<<<<<< HEAD
                     ""name"": ""SwitchWeapon2"",
                     ""type"": ""Button"",
                     ""id"": ""67e553db-1b49-402e-bbcc-c3b31fc65e23"",
@@ -265,7 +263,6 @@ public partial class @PlayerInputActoions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-=======
                     ""name"": ""Point"",
                     ""type"": ""Value"",
                     ""id"": ""ab51aa53-0220-45b8-b410-0cbec0f7e928"",
@@ -273,33 +270,28 @@ public partial class @PlayerInputActoions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
->>>>>>> cb621d4d0e30cd7185c500a68bae285d831f5fd2
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": """",
-<<<<<<< HEAD
                     ""id"": ""1c6d7cdd-6cd7-4573-84f0-16af5ecd6b9e"",
                     ""path"": ""<Keyboard>/1"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""SwitchWeapon1"",
-=======
                     ""id"": ""d32673c9-de5f-474a-982b-b60280bb3f40"",
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Click"",
->>>>>>> cb621d4d0e30cd7185c500a68bae285d831f5fd2
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-<<<<<<< HEAD
                     ""id"": ""02f78125-8b69-4b90-8e71-63fd71d7aa79"",
                     ""path"": ""<Keyboard>/2"",
                     ""interactions"": """",
@@ -339,14 +331,12 @@ public partial class @PlayerInputActoions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""SwitchWeapon5"",
-=======
                     ""id"": ""0953dca7-4e8d-4c1e-94c8-7b00270f332f"",
                     ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Point"",
->>>>>>> cb621d4d0e30cd7185c500a68bae285d831f5fd2
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -363,7 +353,6 @@ public partial class @PlayerInputActoions: IInputActionCollection2, IDisposable
         m_Gameplay_Crouch = m_Gameplay.FindAction("Crouch", throwIfNotFound: true);
         m_Gameplay_Sprint = m_Gameplay.FindAction("Sprint", throwIfNotFound: true);
         m_Gameplay_Fire = m_Gameplay.FindAction("Fire", throwIfNotFound: true);
-<<<<<<< HEAD
         // weapons switch
         m_weaponsswitch = asset.FindActionMap("weapons switch", throwIfNotFound: true);
         m_weaponsswitch_SwitchWeapon1 = m_weaponsswitch.FindAction("SwitchWeapon1", throwIfNotFound: true);
@@ -371,12 +360,11 @@ public partial class @PlayerInputActoions: IInputActionCollection2, IDisposable
         m_weaponsswitch_SwitchWeapon3 = m_weaponsswitch.FindAction("SwitchWeapon3", throwIfNotFound: true);
         m_weaponsswitch_SwitchWeapon4 = m_weaponsswitch.FindAction("SwitchWeapon4", throwIfNotFound: true);
         m_weaponsswitch_SwitchWeapon5 = m_weaponsswitch.FindAction("SwitchWeapon5", throwIfNotFound: true);
-=======
+
         // UI
-        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
-        m_UI_Click = m_UI.FindAction("Click", throwIfNotFound: true);
-        m_UI_Point = m_UI.FindAction("Point", throwIfNotFound: true);
->>>>>>> cb621d4d0e30cd7185c500a68bae285d831f5fd2
+        // m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
+        // m_UI_Click = m_UI.FindAction("Click", throwIfNotFound: true);
+        // m_UI_Point = m_UI.FindAction("Point", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -521,7 +509,6 @@ public partial class @PlayerInputActoions: IInputActionCollection2, IDisposable
     }
     public GameplayActions @Gameplay => new GameplayActions(this);
 
-<<<<<<< HEAD
     // weapons switch
     private readonly InputActionMap m_weaponsswitch;
     private List<IWeaponsswitchActions> m_WeaponsswitchActionsCallbackInterfaces = new List<IWeaponsswitchActions>();
@@ -599,61 +586,7 @@ public partial class @PlayerInputActoions: IInputActionCollection2, IDisposable
         }
     }
     public WeaponsswitchActions @weaponsswitch => new WeaponsswitchActions(this);
-=======
-    // UI
-    private readonly InputActionMap m_UI;
-    private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
-    private readonly InputAction m_UI_Click;
-    private readonly InputAction m_UI_Point;
-    public struct UIActions
-    {
-        private @PlayerInputActoions m_Wrapper;
-        public UIActions(@PlayerInputActoions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Click => m_Wrapper.m_UI_Click;
-        public InputAction @Point => m_Wrapper.m_UI_Point;
-        public InputActionMap Get() { return m_Wrapper.m_UI; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
-        public void AddCallbacks(IUIActions instance)
-        {
-            if (instance == null || m_Wrapper.m_UIActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_UIActionsCallbackInterfaces.Add(instance);
-            @Click.started += instance.OnClick;
-            @Click.performed += instance.OnClick;
-            @Click.canceled += instance.OnClick;
-            @Point.started += instance.OnPoint;
-            @Point.performed += instance.OnPoint;
-            @Point.canceled += instance.OnPoint;
-        }
 
-        private void UnregisterCallbacks(IUIActions instance)
-        {
-            @Click.started -= instance.OnClick;
-            @Click.performed -= instance.OnClick;
-            @Click.canceled -= instance.OnClick;
-            @Point.started -= instance.OnPoint;
-            @Point.performed -= instance.OnPoint;
-            @Point.canceled -= instance.OnPoint;
-        }
-
-        public void RemoveCallbacks(IUIActions instance)
-        {
-            if (m_Wrapper.m_UIActionsCallbackInterfaces.Remove(instance))
-                UnregisterCallbacks(instance);
-        }
-
-        public void SetCallbacks(IUIActions instance)
-        {
-            foreach (var item in m_Wrapper.m_UIActionsCallbackInterfaces)
-                UnregisterCallbacks(item);
-            m_Wrapper.m_UIActionsCallbackInterfaces.Clear();
-            AddCallbacks(instance);
-        }
-    }
-    public UIActions @UI => new UIActions(this);
->>>>>>> cb621d4d0e30cd7185c500a68bae285d831f5fd2
     public interface IGameplayActions
     {
         void OnLook(InputAction.CallbackContext context);
@@ -663,7 +596,6 @@ public partial class @PlayerInputActoions: IInputActionCollection2, IDisposable
         void OnSprint(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
     }
-<<<<<<< HEAD
     public interface IWeaponsswitchActions
     {
         void OnSwitchWeapon1(InputAction.CallbackContext context);
@@ -671,11 +603,9 @@ public partial class @PlayerInputActoions: IInputActionCollection2, IDisposable
         void OnSwitchWeapon3(InputAction.CallbackContext context);
         void OnSwitchWeapon4(InputAction.CallbackContext context);
         void OnSwitchWeapon5(InputAction.CallbackContext context);
-=======
     public interface IUIActions
     {
         void OnClick(InputAction.CallbackContext context);
         void OnPoint(InputAction.CallbackContext context);
->>>>>>> cb621d4d0e30cd7185c500a68bae285d831f5fd2
     }
-}
+}}
