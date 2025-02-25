@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using Unity.Properties;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -9,23 +7,21 @@ public class networkManagerUI : MonoBehaviour
 {
     private UIDocument _document;
     private Button _server;
-    // public struct Buttons
-    // {
-    //     Button _server;
-    //     Button _host;
-    // }
+    private Button _client;
+    private Button _host;
     private List<Button> _serverUIButtons = new List<Button>();
 
     private void Awake()
     {
+        
         _document = GetComponent<UIDocument>();
         
-        // Buttons._server = _document.rootVisualElement.Q("Server") as Button;
-        // _server.RegisterCallback<ClickEvent>(onServerClick);
-        // _server = _document.rootVisualElement.Q("Host") as Button;
-        // _server.RegisterCallback<ClickEvent>(onServerClick);
-        _server = _document.rootVisualElement.Q("Client") as Button;
+        _server = _document.rootVisualElement.Q("Server") as Button;
         _server.RegisterCallback<ClickEvent>(onServerClick);
+        _host = _document.rootVisualElement.Q("Host") as Button;
+        _host.RegisterCallback<ClickEvent>(onServerClick);
+        _client = _document.rootVisualElement.Q("Client") as Button;
+        _client.RegisterCallback<ClickEvent>(onServerClick);
 
         // _serverUIButtons = _document.rootVisualElement.Query<Button>().ToList();
         // for (int i = 0; i < _serverUIButtons.Count; i++)
@@ -48,7 +44,20 @@ public class networkManagerUI : MonoBehaviour
 
     private void onServerClick(ClickEvent evt)
     {
-        Debug.Log("server btn pressed");
+        if (evt.currentTarget.Equals(_server))
+        {
+            NetworkManager.Singleton.StartServer();
+        };
+
+        if (evt.currentTarget.Equals(_client))
+        {
+            NetworkManager.Singleton.StartClient();
+        };
+
+        if (evt.currentTarget.Equals(_host))
+        {
+            NetworkManager.Singleton.StartHost();
+        };
     }
 
     private void OnAllButtonsClick(ClickEvent evt)
