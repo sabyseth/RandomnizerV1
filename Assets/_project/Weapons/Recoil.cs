@@ -1,6 +1,7 @@
 using UnityEngine;
+using Unity.Netcode;
 
-public class Recoil : MonoBehaviour {
+public class Recoil : NetworkBehaviour {
 
     public float maxRecoil_x = -20.0f;
     public float maxRecoil_y = -10.0f;

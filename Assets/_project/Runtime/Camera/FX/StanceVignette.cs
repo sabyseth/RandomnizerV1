@@ -1,8 +1,9 @@
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using Unity.Netcode;
 
-public class StanceVignette : MonoBehaviour
+public class StanceVignette : NetworkBehaviour
 {
     [SerializeField] private float min = 0.1f;
     [SerializeField] private float max = 0.35f;

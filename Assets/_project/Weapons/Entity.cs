@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Runtime.InteropServices;
 using UnityEngine;
+using Unity.Netcode;
 
-public class Entity : MonoBehaviour
+public class Entity : NetworkBehaviour
 {
     [SerializeField] private float StartingHealth;
     [SerializeField] private BoxCollider collider;

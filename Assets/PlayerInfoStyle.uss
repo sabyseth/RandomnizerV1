@@ -5,7 +5,6 @@
     align-self: flex-start;
     left: 0;
     top: 80%;
-    bottom: auto;
     -unity-text-align: middle-left;
     white-space: normal;
     text-overflow: clip;
